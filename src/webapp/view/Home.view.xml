@@ -1,0 +1,63 @@
+<mvc:View controllerName="sap.ui.demo.basicTemplate.controller.Home"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:layout="sap.ui.layout" height="100%">
+	<f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="Resources of the server this app is running on"/>
+				</f:heading>
+
+
+				<f:content>
+					<OverflowToolbar>
+						<GenericTag design="StatusIconHidden" id="serverStatusTag" text="Uptime:">
+							<ObjectNumber number="{uptime>/hours}" unit="hours" emphasized="false" />
+						</GenericTag>
+					</OverflowToolbar>
+				</f:content>
+			</f:DynamicPageTitle>
+		</f:title>
+		<!-- DynamicPage Header -->
+		<f:header>
+			<f:DynamicPageHeader pinnable="true">
+				<layout:HorizontalLayout allowWrapping="true">
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<Image width="75px" height="75px" ariaDetails="detailsActiveImage" src="{platform>/logo}" press="handleImage3Press" />
+					</layout:VerticalLayout>
+
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<!-- Server information -->
+						<ObjectAttribute title="Server" text="{platform>/version}"/>
+						<ObjectAttribute title="Release" text="{platform>/release}" />
+						<ObjectAttribute title="Platform" text="{platform>/platform} - {platform>/arch}" />
+						<ProgressIndicator displayValue="{memory>/percent/usedmem}" percentValue="{memory>/percent/usedmem} %" state="Information"/>
+					</layout:VerticalLayout>
+				</layout:HorizontalLayout>
+
+				<!--  -->
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+
+			<!-- Content for the CPU Items -->
+			<f:GridList id="cpuGridList" headerText="CPU Units" items="{cpus>/}">
+				<f:GridListItem press="handlePressGridListItem">
+					<VBox class="sapUiSmallMargin">
+						<layoutData>
+							<FlexItemData growFactor="1" shrinkFactor="0" />
+							<!-- Don't shrink below minimum size. Fill space if available. -->
+						</layoutData>
+						<Title text="{cpus>model}" wrapping="true" />
+						<Label text="{cpus>speed}" wrapping="true" />
+					</VBox>
+				</f:GridListItem>
+			</f:GridList>
+			<!-- / -->
+
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>
