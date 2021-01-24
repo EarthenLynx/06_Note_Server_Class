@@ -1,6 +1,7 @@
-const s = require('../model/System.model');
+const SystemModel = require('../model/System.model');
 
 test('Checks the uptime method for proper functionality', () => {
+	const s = new SystemModel()
 	const uptime = s.getUptime('m');
 	expect(uptime).toBeDefined();
 	expect(uptime).toMatchObject({
@@ -13,6 +14,7 @@ test('Checks the uptime method for proper functionality', () => {
 });
 
 test('Checks if the platform object is properly formatted', () => {
+	const s = new SystemModel()
 	const platform = s.getPlatform();
 	expect(platform).toBeDefined();
 	expect(platform).toMatchObject({
@@ -24,6 +26,7 @@ test('Checks if the platform object is properly formatted', () => {
 });
 
 test('Checks if the user object is properly formatted', () => {
+	const s = new SystemModel()
 	const user = s.getUser();
 	expect(user).toBeDefined();
 	expect(user).toMatchObject({
@@ -33,6 +36,7 @@ test('Checks if the user object is properly formatted', () => {
 });
 
 test('Checks if the memory object is properly formatted', () => {
+	const s = new SystemModel()
 	const memory = s.getMemory();
 	expect(memory).toBeDefined();
 	expect(memory).toMatchObject({
@@ -45,3 +49,11 @@ test('Checks if the memory object is properly formatted', () => {
 	expect(memory.percent.freemem).toBeLessThan(100);
 	expect(memory.percent.usedmem).toBeLessThan(100);
 });
+
+test('Checks if the processes data are properly formatted', () => {
+  expect.assertions(1);
+	const s = new SystemModel();
+	s.getProcesses().then(processes => {
+		expect(processes).toBeDefined();
+	})
+})

@@ -1,3 +1,4 @@
+const { log } = require('console');
 const fs = require('fs');
 const {
 	cpus,
@@ -11,6 +12,7 @@ const {
 	homedir,
 	uptime,
 } = require('os');
+const { processes, diskLayout } = require('systeminformation');
 
 class SystemModel {
 	constructor() {
@@ -29,6 +31,10 @@ class SystemModel {
 		this.userInfo = userInfo();
 		this.homedir = homedir();
 		this.uptime = uptime();
+
+		// systeminformation
+		this.processes = '';
+		this.diskLayout = '';
 	}
 	/**
 	 *
@@ -81,6 +87,16 @@ class SystemModel {
 		return this.cpus;
 	}
 
+	async getProcesses() {
+		this.processes = await processes();
+		return await this.processes
+	}
+
+	async getDisks() {
+		this.diskLayout = await diskLayout();
+		return await this.diskLayout;
+	}
+
 	_defineSystemLogo() {
 		switch (this.platform) {
 			case 'win32':
@@ -92,5 +108,6 @@ class SystemModel {
 		}
 	}
 }
+
 
 module.exports = SystemModel;

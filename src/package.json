@@ -10,7 +10,7 @@
     "karma-ci": "karma start karma-ci.conf.js",
     "watch": "npm run karma",
     "test": "npm run lint && rimraf coverage && npm run karma-ci",
-    "build": "ui5 build --a --dest ../public",
+    "build": "ui5 build --dest ../public",
     "build-all": "rimraf ../public && ui5 build --a --dest ../public"
   },
   "devDependencies": {
