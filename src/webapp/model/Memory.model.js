@@ -5,7 +5,7 @@ sap.ui.define(
 
 		const Memory = JSONModel.extend('sap.ui.demo.basicTemplate.model.Memory', {
 			name: 'memory',
-			rootPath: 'http://localhost:9001',
+			rootPath: 'http://192.168.2.159:9001',
 			servicePath: 'system/memory',
 
 			async load(handler, query) {

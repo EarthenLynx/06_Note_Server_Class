@@ -6,7 +6,7 @@
     "start": "pm2 start app.js -n Node_Server9001 && pm2 monit",
     "test": "jest",
     "dev": "nodemon app",
-    "build": "cd src && npm run build-all && npm run start"
+    "build": "npm i && cd src && npm i && npm run build-all && cd .. && npm run start"
   },
   "dependencies": {
     "cookie-parser": "^1.4.5",

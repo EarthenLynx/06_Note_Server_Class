@@ -5,7 +5,7 @@ sap.ui.define(
 
 		const Platform = JSONModel.extend('sap.ui.demo.basicTemplate.model.Platform', {
 			name: 'platform',
-			rootPath: 'http://localhost:9001',
+			rootPath: 'http://192.168.2.159:9001',
 			servicePath: 'system/platform',
 
 			async load(handler, query) {

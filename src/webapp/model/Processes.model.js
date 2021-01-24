@@ -5,7 +5,7 @@ sap.ui.define(
 
 		const Processes = JSONModel.extend('sap.ui.demo.basicTemplate.model.Processes', {
 			name: 'processes',
-			rootPath: 'http://localhost:9001',
+			rootPath: 'http://192.168.2.159:9001',
 			servicePath: 'system/processes',
 
 			async load(handler, query) {
