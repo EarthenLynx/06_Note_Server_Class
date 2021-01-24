@@ -7,6 +7,14 @@ sap.ui.define([], function () {
 			} else {
 				return bytes;
 			}
+		},
+
+		formatUsedBytesToPercent(disk) {
+			if(disk) {
+				return (disk.used * 100 / disk.size).toFixed(2)
+			} else {
+				return ''
+			}
 		}
 	};
 });

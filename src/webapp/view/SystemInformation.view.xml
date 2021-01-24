@@ -27,11 +27,16 @@
           <FlexItemData growFactor="1" shrinkFactor="0" />
           <!-- Don't shrink below minimum size. Fill space if available. -->
         </layoutData>
-        <Title text="{disks>name}" wrapping="true" />
-        <Label text="Size: {
+        <Title text="Path: {disks>fs}" wrapping="true" />
+        <ProgressIndicator displayValue="{path: 'disks>', formatter: '.formatter.formatUsedBytesToPercent'}" percentValue="{path: 'disks>', formatter: '.formatter.formatUsedBytesToPercent'} %" state="Information"/>
+
+        <Label text="{
+            path: 'disks>used',
+						formatter: '.formatter.formatBytesToGigabytes'
+          } GB out of {
             path: 'disks>size',
 						formatter: '.formatter.formatBytesToGigabytes'
-          } GB" wrapping="true" />
+          } GB used" wrapping="true" />
         <Label text="Type: {disks>type}"></Label>
       </VBox>
     </f:GridListItem>

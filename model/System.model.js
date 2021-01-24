@@ -1,5 +1,3 @@
-const { log } = require('console');
-const fs = require('fs');
 const {
 	cpus,
 	arch,
@@ -12,7 +10,7 @@ const {
 	homedir,
 	uptime,
 } = require('os');
-const { processes, diskLayout } = require('systeminformation');
+const { processes, fsSize } = require('systeminformation');
 
 class SystemModel {
 	constructor() {
@@ -34,7 +32,7 @@ class SystemModel {
 
 		// systeminformation
 		this.processes = '';
-		this.diskLayout = '';
+		this.fsSize = '';
 	}
 	/**
 	 *
@@ -93,8 +91,8 @@ class SystemModel {
 	}
 
 	async getDisks() {
-		this.diskLayout = await diskLayout();
-		return this.diskLayout;
+		this.fsSize = await fsSize();
+		return this.fsSize;
 	}
 
 	_defineSystemLogo() {
