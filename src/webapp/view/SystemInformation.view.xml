@@ -41,5 +41,54 @@
       </VBox>
     </f:GridListItem>
   </f:GridList>
+
+  <Table id="idProductsTable" inset="false" items="{
+			path: 'processes>/list',
+			sorter: {
+				path: 'pid'
+			}
+		}">
+    <headerToolbar>
+      <OverflowToolbar>
+        <content>
+          <Title text="Running Processes (# {processes>/all})" level="H2"/>
+          <ToolbarSpacer />
+          <ToggleButton text="Reload processes" press="handleReloadProcessData" />
+        </content>
+      </OverflowToolbar>
+    </headerToolbar>
+    <columns>
+      <Column >
+        <Text text="ID" />
+      </Column>
+      <Column >
+        <Text text="Name" />
+      </Column>
+      <Column >
+        <Text text="Started" />
+      </Column>
+      <Column >
+        <Text text="Mem usage" />
+      </Column>
+      <Column >
+        <Text text="Priority" />
+      </Column>
+    </columns>
+    <items>
+      <ColumnListItem>
+        <cells>
+          <Text text="{processes>pid}" />
+          <Text text="{processes>name}" />
+          <Text text="{processes>started}" />
+          <Text text="{
+            path: 'processes>pmem',
+						formatter: '.formatter.formatPmemToPercent'
+          } %" />
+          <Text text="{processes>priority}" />
+
+        </cells>
+      </ColumnListItem>
+    </items>
+  </Table>
   <!-- / -->
 </mvc:View>

@@ -7,6 +7,7 @@ sap.ui.define(
 		'sap/ui/demo/basicTemplate/model/Uptime.model',
 		'sap/ui/demo/basicTemplate/model/Cpus.model',
 		'sap/ui/demo/basicTemplate/model/Disks.model',
+		'sap/ui/demo/basicTemplate/model/Processes.model',
 		'../model/formatter',
 	],
 	function (
@@ -17,6 +18,7 @@ sap.ui.define(
 		Uptime,
 		Cpus,
 		Disks,
+		Processes,
 		formatter
 	) {
 		'use strict';
@@ -39,6 +41,7 @@ sap.ui.define(
 					Uptime.load(this),
 					Cpus.load(this),
 					Disks.load(this),
+					Processes.load(this),
 				])
 					.then(() => {
 						this.byId('serverStatusTag').setStatus('Success');
@@ -50,13 +53,9 @@ sap.ui.define(
 					});
 			},
 
-			handleGetMockData() {
-				Memory.create();
-				console.log(this.getOwnerComponent().getModel('memory'));
-			},
-
-			handlePressGridListItem(ev) {
-				console.log(ev.getSource());
+			handleReloadProcessData() {
+				Processes.load(this);
+				Toast.show('Reloaded processes data')
 			},
 		});
 	}
