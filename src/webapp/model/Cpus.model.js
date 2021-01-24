@@ -5,7 +5,7 @@ sap.ui.define(
 
 		const Cpus = JSONModel.extend('sap.ui.demo.basicTemplate.model.Cpus', {
 			name: 'cpus',
-			rootPath: 'http://localhost:3000',
+			rootPath: 'http://localhost:9001',
 			servicePath: 'system/cpus',
 
 			async load(handler, query) {

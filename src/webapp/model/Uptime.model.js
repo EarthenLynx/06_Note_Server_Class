@@ -5,7 +5,7 @@ sap.ui.define(
 
 		const Uptime = JSONModel.extend('sap.ui.demo.basicTemplate.model.Uptime', {
 			name: 'uptime',
-			rootPath: 'http://localhost:3000',
+			rootPath: 'http://localhost:9001',
 			servicePath: 'system/uptime',
 
 			async load(handler, query) {

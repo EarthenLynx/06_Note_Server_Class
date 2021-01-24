@@ -5,7 +5,7 @@ sap.ui.define(
 
 		const Disks = JSONModel.extend('sap.ui.demo.basicTemplate.model.Disks', {
 			name: 'disks',
-			rootPath: 'http://localhost:3000',
+			rootPath: 'http://localhost:9001',
 			servicePath: 'system/disks',
 
 			async load(handler, query) {
