@@ -42,22 +42,7 @@
 			</f:DynamicPageHeader>
 		</f:header>
 		<f:content>
-
-			<!-- Content for the CPU Items -->
-			<f:GridList id="cpuGridList" headerText="CPU Units" items="{cpus>/}">
-				<f:GridListItem press="handlePressGridListItem">
-					<VBox class="sapUiSmallMargin">
-						<layoutData>
-							<FlexItemData growFactor="1" shrinkFactor="0" />
-							<!-- Don't shrink below minimum size. Fill space if available. -->
-						</layoutData>
-						<Title text="{cpus>model}" wrapping="true" />
-						<Label text="{cpus>speed}" wrapping="true" />
-					</VBox>
-				</f:GridListItem>
-			</f:GridList>
-			<!-- / -->
-
+			<mvc:XMLView viewName="sap.ui.demo.basicTemplate.view.SystemInformation" async="true" />
 		</f:content>
 	</f:DynamicPage>
 </mvc:View>

@@ -6,9 +6,19 @@ sap.ui.define(
 		'sap/ui/demo/basicTemplate/model/Platform.model',
 		'sap/ui/demo/basicTemplate/model/Uptime.model',
 		'sap/ui/demo/basicTemplate/model/Cpus.model',
+		'sap/ui/demo/basicTemplate/model/Disks.model',
 		'../model/formatter',
 	],
-	function (Controller, Toast, Memory, Platform, Uptime, Cpus, formatter) {
+	function (
+		Controller,
+		Toast,
+		Memory,
+		Platform,
+		Uptime,
+		Cpus,
+		Disks,
+		formatter
+	) {
 		'use strict';
 
 		return Controller.extend('sap.ui.demo.basicTemplate.controller.App', {
@@ -28,6 +38,7 @@ sap.ui.define(
 					Platform.load(this),
 					Uptime.load(this),
 					Cpus.load(this),
+					Disks.load(this),
 				])
 					.then(() => {
 						this.byId('serverStatusTag').setStatus('Success');

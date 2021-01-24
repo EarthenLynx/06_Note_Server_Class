@@ -1,0 +1,40 @@
+<mvc:View controllerName="sap.ui.demo.basicTemplate.controller.Home"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:f="sap.f"
+  xmlns:layout="sap.ui.layout" height="100%">
+
+  <!-- Content for the CPU Items -->
+  <f:GridList id="cpuGridList" headerText="CPU Units" items="{cpus>/}">
+    <f:GridListItem press="handlePressGridListItem">
+      <VBox class="sapUiSmallMargin">
+        <layoutData>
+          <FlexItemData growFactor="1" shrinkFactor="0" />
+          <!-- Don't shrink below minimum size. Fill space if available. -->
+        </layoutData>
+        <Title text="{cpus>model}" wrapping="true" />
+        <Label text="{cpus>speed}" wrapping="true" />
+      </VBox>
+    </f:GridListItem>
+  </f:GridList>
+  <!-- / -->
+
+  <!-- Content for the CPU Items -->
+  <f:GridList id="disksGridList" headerText="Physical Drives" items="{disks>/}">
+    <f:GridListItem press="handlePressGridListItem">
+      <VBox class="sapUiSmallMargin">
+        <layoutData>
+          <FlexItemData growFactor="1" shrinkFactor="0" />
+          <!-- Don't shrink below minimum size. Fill space if available. -->
+        </layoutData>
+        <Title text="{disks>name}" wrapping="true" />
+        <Label text="Size: {
+            path: 'disks>size',
+						formatter: '.formatter.formatBytesToGigabytes'
+          } GB" wrapping="true" />
+        <Label text="Type: {disks>type}"></Label>
+      </VBox>
+    </f:GridListItem>
+  </f:GridList>
+  <!-- / -->
+</mvc:View>
