@@ -89,12 +89,12 @@ class SystemModel {
 
 	async getProcesses() {
 		this.processes = await processes();
-		return await this.processes
+		return this.processes
 	}
 
 	async getDisks() {
 		this.diskLayout = await diskLayout();
-		return await this.diskLayout;
+		return this.diskLayout;
 	}
 
 	_defineSystemLogo() {

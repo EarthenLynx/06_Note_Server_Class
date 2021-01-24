@@ -40,6 +40,26 @@ const Systemcontroller = {
 			res.status(500).send(e.message);
 		}
 	},
+
+	async handleGetProcesses(req, res) {
+		try {
+			const System = new SystemModel();
+			const processes = await System.getProcesses();
+			res.status(200).send(processes);
+		} catch (e) {
+			res.status(500).send(e.message)
+		}
+	},
+
+	async handleGetDisks(req, res) {
+		try {
+			const System = new SystemModel();
+			const disks = await System.getDisks();
+			res.status(200).send(disks)
+		} catch (e) {
+			res.status(500).send(e.message)
+		}
+	}
 };
 
 module.exports = Systemcontroller;
