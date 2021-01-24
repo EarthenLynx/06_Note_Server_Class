@@ -54,8 +54,13 @@ sap.ui.define(
 			},
 
 			handleReloadProcessData() {
-				Processes.load(this);
-				Toast.show('Reloaded processes data')
+				Processes.load(this)
+					.then(() => {
+						Toast.show('Reloaded processes data');
+					})
+					.catch(e => {
+						Toast.show('Could not load server data: ' + e);
+					});
 			},
 		});
 	}
