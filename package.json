@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "start": "pm2 start app.js -n Node_Server9001 && pm2 monit",
     "test": "jest",
     "dev": "nodemon app",
-    "build": "cd src && npm run build-all"
+    "build": "cd src && npm run build-all && npm run start"
   },
   "dependencies": {
     "cookie-parser": "^1.4.5",
